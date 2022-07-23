@@ -266,11 +266,19 @@ function calculate() {
         if (calculatedObject.number1 && calculatedObject.number2 && calculatedObject.op) {
             // //adding code here if previous key is equals and user presses euals again then previous result becomes first number and previous second number is second number for operate
             console.log("equals again after equals before...");
-            console.log(`number1 = ${calculatedObject.number1} , number2 = ${calculatedObject.number2}, operator= ${calculatedObject.op}`)
-            result = operate(Number(calculatedObject.number1), Number(calculatedObject.number2), calculatedObject.op);
-            document.getElementById("result").value = result;
-            calculatedObject.number1 = result;
-            return;
+            if (calculatedObject.number1 != "Error") {
+                console.log(`number1 = ${calculatedObject.number1} , number2 = ${calculatedObject.number2}, operator= ${calculatedObject.op}`)
+                result = operate(Number(calculatedObject.number1), Number(calculatedObject.number2), calculatedObject.op);
+                document.getElementById("result").value = result;
+                calculatedObject.number1 = result;
+                return;
+            }else{
+                //console.log("errorerror");
+                document.getElementById("result").value = '';
+                calculatedObject.number1 = '';
+                return;
+            }
+
         } else {
             displayValue = document.getElementById("result").value;
             firstNumber += displayValue;
