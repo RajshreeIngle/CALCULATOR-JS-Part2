@@ -137,7 +137,7 @@ function display(key) {
                 return key;
             } else {
                 firstNumber = document.getElementById("result").value;
-                if(firstNumber == 0){
+                if (firstNumber == 0) {
                     //console.log("removing 0 as it is not considered first no")
                     firstNumber = '';
                 }
@@ -292,7 +292,7 @@ function calculate() {
     }
     if (firstNumber) {
         if (operator) {
-            console.log("here2");
+            //console.log("here2");
             secondNumber = document.getElementById("result").value;
             // if user presses euals after first number and an operator treate first number as also second number 
             // ex 2+= => 2+2=4
@@ -313,7 +313,7 @@ function calculate() {
             firstNumber = '';
             secondNumber = '';
         } else {
-            console.log("here3");
+            //console.log("here3");
             document.getElementById("result").value = firstNumber;
             previousKey = "=";
             operator = '';
@@ -321,7 +321,7 @@ function calculate() {
             secondNumber = '';
         }
     } else {
-        console.log("here4");
+        //console.log("here4");
         firstNumber = document.getElementById("result").value;
         console.log("fisrt number = " + firstNumber);
         if (num.length > 0) {
