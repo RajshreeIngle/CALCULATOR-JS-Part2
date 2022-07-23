@@ -45,7 +45,7 @@ function multiply(num1, num2) {
 }
 function divide(num1, num2) {
     if (num2 == 0) {
-        console.log("dividing by zero");
+        console.log("dividing by zero so error message");
         return "error";
     }
     return num1 / num2;
