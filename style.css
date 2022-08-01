@@ -5,7 +5,7 @@ body {
 
 h1 {
     display: block;
-    font-family:cursive, sans-serif;
+    font-family:'Ubuntu', sans-serif;
     text-align: center;
     font-size: 48px;
     margin: 10px;
@@ -13,7 +13,7 @@ h1 {
 
 p {
     text-align: center;
-    font-family:cursive, sans-serif;
+    font-family:'Ubuntu', sans-serif;
     font-size: 28px;
     margin: 10px;
 }
@@ -43,7 +43,7 @@ p {
     border: 2px solid black;
     margin: auto;
     /* box-shadow: 10px 10px lightblue; */
-    background-color: rgb(134, 134, 142);
+    background-color: rgb(212, 212, 223);
     color: black;
     width: 351px;
     height: 50px;
@@ -78,6 +78,7 @@ button{
     border: 2px solid black;
     border-radius: 6PX;
     font-size: 23px;
+    color:black
 }
 
 button:active{
@@ -97,7 +98,7 @@ button.operator:hover{
 }
 
 .key{
-    background-color: blueviolet;
+    background-color: rgb(132, 90, 171);
 }
 
 .isDepressed{

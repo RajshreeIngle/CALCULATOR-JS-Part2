@@ -14,8 +14,73 @@ let calculatedObject = {
     number2: '',
     op: ''
 }
-// let op_arr = ['add','subtract','multiply','divide'];
+let keyboardKeysDigits = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
+let keyboardKeysOperator = ['+', '-', '/', '*']
 let op_button;
+
+//keyBoard support
+// Add event listener on keydown
+document.addEventListener('keydown', (event) => {
+    let name = event.key;
+    let code = event.code;
+    console.log("keyboard key pressed : " + name);
+    if (name === 'Control') {
+        // Do nothing.
+        return;
+    }
+    if (event.ctrlKey) {
+        //do nothing
+        //alert(`Combination of ctrlKey + ${name} \n Key code Value: ${code}`);
+    } else {
+        if (keyboardKeysDigits.includes(name)) {
+            // alert("digit")
+            display(name);
+            active('notOperator');
+        } else if (keyboardKeysOperator.includes(name)) {
+            //alert(name)
+            if (name == '+') {
+                active("add");
+                display(name);
+            }
+            if (name == '-') {
+                active("subtract");
+                display(name);
+            }
+            if (name == '*') {
+                active("multiply");
+                display(name);
+            }
+            if (name == '/') {
+                //console.log("divide")
+                active("divide");
+                display(name);
+            }
+            // console.log("here11111")
+            //display(name);   
+        } else if (name == 'Backspace') {
+            backspace();
+            active('notOperator');
+            // alert(`Key pressed ${name} \n Key code Value: ${code}`);
+        } else if (name == '=' || name == 'Enter') {
+            calculate();
+            active('notOperator');
+        } else if (name == '.') {
+            display('.');
+            active('notOperator');
+        } else {
+            ///console.log("nothing")
+        }
+    }
+}, false);
+
+
+// Add event listener on keyup
+document.addEventListener('keyup', (event) => {
+    var name = event.key;
+    if (name === 'Control') {
+        alert('Control key released');
+    }
+}, false);
 
 // Function to operate and give result
 function operate(num1, num2, operator) {
@@ -111,7 +176,7 @@ function backspace() {
         for (i = 0; i < num.length; i++) {
             displayValue += num[i];
         }
-        //console.log("displaye value after backspace:" + displayValue);
+        //console.log("display value after backspace:" + displayValue);
         document.getElementById("result").value = displayValue;
         if (displayValue.includes('.')) {
             decimal = true;
@@ -123,6 +188,7 @@ function backspace() {
 
 function display(key) {
     //console.log("previous key is : " + previousKey);
+    console.log("keypressed " + key);
     if (previousKey == "digit") {
         if (document.getElementById("result").value == '0') {
             document.getElementById("result").value = '';
@@ -145,8 +211,8 @@ function display(key) {
                 //console.log( + ".....")
                 document.getElementById("result").value = '';
                 operator = key;
-                // previousKey = "operator";
-                previousKey = "none"
+                previousKey = "operator";
+                //previousKey = "none"
                 return key;
             }
         } else if (key == '.') {
@@ -154,7 +220,10 @@ function display(key) {
             //console.log("entering new number with decimal point");
             // document.getElementById("result").value = '0';
         } else {
-            decimal = false;                          //here decimal false after calculation of "="
+            decimal = false;   
+            calculatedObject.number1 = '';
+            calculatedObject.number2 = '';
+            calculatedObject.op = '';                       //here decimal false after calculation of "="
             document.getElementById("result").value = '';
             previousKey = "none";
         }
@@ -163,9 +232,13 @@ function display(key) {
         if (key == '+' || key == '-' || key == '*' || key == '/') {
             previousKey = 'operator';
             operator = key;
+        }else if(key == '.'){
+            decimal = false; // editing here for bug 2
+            console.log(" '.' after operator")
+            document.getElementById("result").value = '' //empty the screen when pressing digit after previous  operator 
         } else {
             // console.log("in operator repeat ")
-            previousKey = "none"
+            previousKey = "digit"
             document.getElementById("result").value = '' //empty the screen when pressing digit after previous  operator 
         }
     }
@@ -247,7 +320,7 @@ function display(key) {
         } else {
             console.log("cannot have 2 decimals");
             // displayValue = document.getElementById("result").value
-            // console.log("display value+" + displayValue)
+            console.log("display value+" + displayValue)
             document.getElementById("result").value = '';
             document.getElementById("result").value = displayValue;
             displayValue = '';
@@ -272,7 +345,7 @@ function calculate() {
                 document.getElementById("result").value = result;
                 calculatedObject.number1 = result;
                 return;
-            }else{
+            } else {
                 //console.log("errorerror");
                 document.getElementById("result").value = '';
                 calculatedObject.number1 = '';
@@ -357,6 +430,8 @@ function calculate() {
         num.pop();
     }
 }
+
+
 
 
 

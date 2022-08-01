@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,7 +8,13 @@
     <title>Document</title>
     <link rel="stylesheet" href="./style.css">
     <script src="./finalscript.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Inter:wght@300&family=Ubuntu:wght@300&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <header>
         <h1>Basic Calulator</h1>
@@ -20,8 +27,8 @@
             </div>
             <div class="btn">
                 <div class="row">
-                    <button class="key" value="C"  onclick="clearDisplay(); active('notOperator'); ">C</button>
-                    <button class="key"value="B" onclick="backspace(); active('notOperator');">B</button>
+                    <button class="key" value="C" onclick="clearDisplay(); active('notOperator'); ">C</button>
+                    <button class="key" value="B" onclick="backspace(); active('notOperator');">B</button>
                     <button class="key" value="." onclick="display('.'); active('notOperator');">.</button>
                     <button class="operator" value="/" id="divide" onclick="active('divide'); display('/');">/</button>
                 </div>
@@ -29,26 +36,31 @@
                     <button class="digit" value="7" onclick="display('7'); active('notOperator');">7</button>
                     <button class="digit" value="8" onclick="display('8'); active('notOperator');">8</button>
                     <button class="digit" value="9" onclick="display('9'); active('notOperator');">9</button>
-                    <button class="operator" value="*" id="multiply" onclick="active('multiply'); display('*');">*</button>
+                    <button class="operator" value="*" id="multiply"
+                        onclick="active('multiply'); display('*');">*</button>
                 </div>
                 <div class="row">
                     <button class="digit" value="4" onclick="display('4'); active('notOperator');">4</button>
                     <button class="digit" value="5" onclick="display('5'); active('notOperator');">5</button>
                     <button class="digit" value="6" onclick="display('6'); active('notOperator');">6</button>
-                    <button class="operator"value="-" id="subtract" onclick="active('subtract'); display('-');">-</button>
+                    <button class="operator" value="-" id="subtract"
+                        onclick="active('subtract'); display('-');">-</button>
                 </div>
                 <div class="row">
                     <button class="digit" value="1" onclick="display('1'); active('notOperator');">1</button>
                     <button class="digit" value="2" onclick="display('2'); active('notOperator');">2</button>
                     <button class="digit" value="3" onclick="display('3'); active('notOperator');">3</button>
-                    <button class="operator"value="+" id="add" onclick="active('add'); display('+');">+</button>
+                    <button class="operator" value="+" id="add" onclick="active('add'); display('+');">+</button>
                 </div>
                 <div class="row row5">
-                    <button class="digit" class="zero-button" value="0" onclick="display('0'); active('notOperator');">0</button>
-                    <button class="equals" id="equals"value="=" onclick="calculate(); active('notOperator');">=</button>
+                    <button class="digit" class="zero-button" value="0"
+                        onclick="display('0'); active('notOperator');">0</button>
+                    <button class="equals" id="equals" value="="
+                        onclick="calculate(); active('notOperator');">=</button>
                 </div>
             </div>
         </div>
     </div>
 </body>
+
 </html>
